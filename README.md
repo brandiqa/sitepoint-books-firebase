@@ -25,7 +25,7 @@ Sitepoint Books App, an MVP example built with Vite + React, powered by Firebase
 
    ```
 
-6. Go to `Project Overview` > `Project Setting` to access your app config. Copy the relevant config values to `.env`
+6. Go to `Project Overview` > `Project Setting` to access your app config. Copy the relevant config values to `.env.local`
 7. Start the dev server with the command `npm run dev`. Open your browser and point it to `localhost:3000`
 
 ## LICENSE
