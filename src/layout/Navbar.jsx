@@ -35,7 +35,7 @@ function Navbar() {
     </NavLink>
   ))
   return (
-    <nav className="mb-2 shadow-lg bg-neutral rounded-box text-neutral-content navbar">
+    <nav className="mb-2 shadow-lg bg-neutral text-neutral-content navbar">
       <div className="px-2 mx-2 navbar-start">
         <Link to="/" className="inline-block text-lg font-bold text-primary">
           <span>SitePoint </span>
