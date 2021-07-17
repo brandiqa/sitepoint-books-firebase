@@ -3,13 +3,13 @@ import { Route, Switch } from 'react-router-dom'
 import Footer from './layout/Footer'
 import Navbar from './layout/Navbar'
 
-import Home from './views/Home'
-import CategoriesView from './views/category/CategoriesView'
-import AuthorsView from './views/author/AuthorsView'
-import BooksView from './views/book/BooksView'
-import LoginView from './views/auth/LoginView'
-import RegisterView from './views/auth/RegisterView'
-import NotFound from './views/NotFound'
+import Home from './screens/Home'
+import NotFound from './screens/NotFound'
+import ScreenCategoryList from './screens/category/List'
+import ScreenAuthorList from './screens/author/List'
+import ScreenBookList from './screens/book/List'
+import ScreenLogin from './screens/auth/Login'
+import ScreenJoin from './screens/auth/Join'
 
 function App() {
   return (
@@ -23,19 +23,19 @@ function App() {
             <Home />
           </Route>
           <Route path="/category/list">
-            <CategoriesView />
+            <ScreenCategoryList />
           </Route>
           <Route path="/author/list">
-            <AuthorsView />
+            <ScreenAuthorList />
           </Route>
           <Route path="/book/list">
-            <BooksView />
+            <ScreenBookList />
           </Route>
           <Route path="/login">
-            <LoginView />
+            <ScreenLogin />
           </Route>
           <Route path="/join">
-            <RegisterView />
+            <ScreenJoin />
           </Route>
           <Route component={NotFound} />
         </Switch>

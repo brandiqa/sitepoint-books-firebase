@@ -1,8 +1,8 @@
 import React from 'react'
 import PageHeading from '../../components/ui/PageHeading'
-import AuthorList from '../../components/author/AuthorList'
+import AuthorList from '../../components/author/List'
 
-function AuthorsView() {
+function ScreenAuthorList() {
   return (
     <>
       <PageHeading title="Author List" />
@@ -11,4 +11,4 @@ function AuthorsView() {
   )
 }
 
-export default AuthorsView
+export default ScreenAuthorList

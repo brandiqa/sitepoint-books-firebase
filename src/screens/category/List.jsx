@@ -1,8 +1,8 @@
 import React from 'react'
 import PageHeading from '../../components/ui/PageHeading'
-import CategoryList from '../../components/category/CategoryList'
+import CategoryList from '../../components/category/List'
 
-function CategoriesView() {
+function ScreenCategoryList() {
   return (
     <>
       <PageHeading title="Category List" />
@@ -11,4 +11,4 @@ function CategoriesView() {
   )
 }
 
-export default CategoriesView
+export default ScreenCategoryList

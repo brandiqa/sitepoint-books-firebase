@@ -1,12 +1,12 @@
 import React from 'react'
 import PageHeading from '../../components/ui/PageHeading'
 
-function LoginView() {
+function ScreenJoin() {
   return (
     <>
-      <PageHeading title="Login" />
+      <PageHeading title="Join" />
     </>
   )
 }
 
-export default LoginView
+export default ScreenJoin

@@ -1,12 +1,12 @@
 import React from 'react'
 import PageHeading from '../../components/ui/PageHeading'
 
-function BooksView() {
+function ScreenLogin() {
   return (
     <>
-      <PageHeading title="Book List" />
+      <PageHeading title="Login" />
     </>
   )
 }
 
-export default BooksView
+export default ScreenLogin
