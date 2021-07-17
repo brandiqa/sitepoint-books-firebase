@@ -54,7 +54,7 @@ function Home() {
     <>
       <PageHeading title="Home" />
       <h2 className="mt-8 text-lg font-semibold text-primary">
-        Browser books by:
+        Browse books by:
       </h2>
       <div className="grid max-w-screen-md grid-cols-1 gap-4 mt-8 justify-items-center md:grid-cols-3 md:justify-items-start">
         {pageCards}
