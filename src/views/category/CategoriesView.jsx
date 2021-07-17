@@ -1,10 +1,11 @@
 import React from 'react'
+import PageHeading from '../../components/ui/PageHeading'
 
 function CategoriesView() {
   return (
-    <div>
-      <h1>Category List</h1>
-    </div>
+    <>
+      <PageHeading title="Category List" />
+    </>
   )
 }
 

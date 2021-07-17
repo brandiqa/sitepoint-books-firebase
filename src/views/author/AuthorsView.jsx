@@ -1,10 +1,11 @@
 import React from 'react'
+import PageHeading from '../../components/ui/PageHeading'
 
 function AuthorsView() {
   return (
-    <div>
-      <h1>Authors List</h1>
-    </div>
+    <>
+      <PageHeading title="Author List" />
+    </>
   )
 }
 

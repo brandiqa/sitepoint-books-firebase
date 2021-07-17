@@ -1,10 +1,11 @@
 import React from 'react'
+import PageHeading from '../../components/ui/PageHeading'
 
 function RegisterView() {
   return (
-    <div>
-      <h1>Join Premium</h1>
-    </div>
+    <>
+      <PageHeading title="Join" />
+    </>
   )
 }
 

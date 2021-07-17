@@ -1,10 +1,11 @@
 import React from 'react'
+import PageHeading from '../../components/ui/PageHeading'
 
 function BooksView() {
   return (
-    <div>
-      <h1>Books List</h1>
-    </div>
+    <>
+      <PageHeading title="Book List" />
+    </>
   )
 }
 

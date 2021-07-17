@@ -1,10 +1,11 @@
 import React from 'react'
+import PageHeading from '../../components/ui/PageHeading'
 
 function LoginView() {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <>
+      <PageHeading title="Login" />
+    </>
   )
 }
 
