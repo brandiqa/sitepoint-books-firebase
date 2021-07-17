@@ -10,8 +10,7 @@ function App() {
       </header>
       <main className="container flex-grow p-4 mx-auto">
         <h1>
-          <span className="text-primary">Hello </span>
-          <span className="text-base">World!</span>
+          <span className="text-primary">Hello</span> World!
         </h1>
       </main>
       <Footer />
