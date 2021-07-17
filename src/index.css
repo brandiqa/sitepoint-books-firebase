@@ -1,11 +1,19 @@
-body {
-  @apply font-sans bg-gray-100 text-gray-700 antialiased;
+html {
+  @apply font-sans antialiased;
+}
+
+#root {
+  @apply flex flex-col min-h-screen overflow-x-hidden;
 }
 
 h1 {
-  @apply text-gray-900 font-bold text-4xl;
+  @apply font-bold text-4xl;
 }
 
 h2 {
-  @apply text-gray-800 text-3xl;
+  @apply text-3xl;
+}
+
+.btn {
+  @apply rounded-full;
 }

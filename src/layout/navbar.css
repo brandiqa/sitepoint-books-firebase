@@ -1,0 +1,3 @@
+.navbar-center .active {
+  @apply text-white font-bold;
+}
