@@ -10,7 +10,6 @@
     "format": "prettier --write \"**/*.{jsx,js,css,json,md}\""
   },
   "dependencies": {
-    "@google-cloud/firestore": "^4.13.2",
     "@headlessui/react": "^1.3.0",
     "@heroicons/react": "^1.0.2",
     "@tailwindcss/aspect-ratio": "^0.2.1",
