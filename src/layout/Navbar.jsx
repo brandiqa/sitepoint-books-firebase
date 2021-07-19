@@ -8,10 +8,6 @@ import './navbar.css'
 function Navbar() {
   const routes = [
     {
-      text: 'Home',
-      url: '/',
-    },
-    {
       text: 'Categories',
       url: '/category/list',
     },
@@ -29,7 +25,6 @@ function Navbar() {
       to={route.url}
       key={index}
       className="rounded-btn btn btn-ghost btn-sm"
-      exact
     >
       {route.text}
     </NavLink>
@@ -43,7 +38,12 @@ function Navbar() {
         </Link>
       </div>
       <div className="hidden px-2 mx-2 navbar-center md:flex">
-        <div className="flex items-stretch space-x-2">{links}</div>
+        <div className="flex items-stretch space-x-2">
+          <NavLink to="/" className="rounded-btn btn btn-ghost btn-sm" exact>
+            Home
+          </NavLink>
+          {links}
+        </div>
       </div>
       <div className="navbar-end">
         <div className="flex space-x-4">
