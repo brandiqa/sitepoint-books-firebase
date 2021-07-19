@@ -1,12 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import EmptyState from '../ui/EmptyState'
+import { UserCircleIcon } from '@heroicons/react/outline'
 
-function AuthorList() {
-  const authors = [
-    { id: '123', name: 'Jane Cooper' },
-    { id: '124', name: 'Cody Fisher' },
-  ]
-
+function AuthorList({ data }) {
+  if (!data || data.length == 0) {
+    return (
+      <EmptyState
+        icon={UserCircleIcon}
+        title="No authors"
+        message="Start by creating a new author"
+        link="/author/create"
+      />
+    )
+  }
   return (
     <div className="overflow-x-auto">
       <table className="table w-full max-w-screen-md">
@@ -19,7 +26,7 @@ function AuthorList() {
           </tr>
         </thead>
         <tbody>
-          {authors.map((author, index) => (
+          {data.map((author, index) => (
             <tr key={index}>
               <td>{author.name}</td>
               <td>
