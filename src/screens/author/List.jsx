@@ -6,7 +6,9 @@ function ScreenAuthorList() {
   return (
     <>
       <PageHeading title="Author List" />
-      <AuthorList />
+      <div className="mt-12">
+        <AuthorList />
+      </div>
     </>
   )
 }
