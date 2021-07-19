@@ -9,7 +9,8 @@ function AuthorList({ data }) {
       <EmptyState
         icon={UserCircleIcon}
         title="No authors"
-        message="Start by creating a new author"
+        message="Start by adding a new author"
+        btnLabel="Add Author"
         link="/author/create"
       />
     )

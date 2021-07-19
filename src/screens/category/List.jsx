@@ -6,7 +6,9 @@ function ScreenCategoryList() {
   return (
     <>
       <PageHeading title="Category List" />
-      <CategoryList />
+      <div className="mt-12">
+        <CategoryList />
+      </div>
     </>
   )
 }

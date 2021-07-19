@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { PlusIcon } from '@heroicons/react/solid'
 
-function EmptyState({ title, message, icon, link }) {
+function EmptyState({ title, message, icon, btnLabel, link }) {
   return (
     <div className="text-center">
       {React.createElement(icon, {
@@ -14,7 +14,7 @@ function EmptyState({ title, message, icon, link }) {
       <div className="mt-6">
         <Link to={link} className="btn btn-secondary">
           <PlusIcon className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
-          Create Author
+          {btnLabel}
         </Link>
       </div>
     </div>

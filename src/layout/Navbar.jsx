@@ -9,15 +9,15 @@ function Navbar() {
   const routes = [
     {
       text: 'Categories',
-      url: '/category/list',
+      url: '/category',
     },
     {
       text: 'Authors',
-      url: '/author/list',
+      url: '/author',
     },
     {
       text: 'Books',
-      url: '/book/list',
+      url: '/book',
     },
   ]
   const links = routes.map((route, index) => (

@@ -22,10 +22,10 @@ function App() {
       </header>
       <main className="container flex-grow p-4 mx-auto">
         <Switch>
-          <Route path="/" exact>
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/category/list">
+          <Route exact path="/category">
             <ScreenCategoryList />
           </Route>
           <Route path="/category/edit/:id">
@@ -34,7 +34,7 @@ function App() {
           <Route path="/category/create">
             <ScreenCategoryForm />
           </Route>
-          <Route path="/author/list">
+          <Route exact path="/author">
             <ScreenAuthorList />
           </Route>
           <Route path="/author/edit/:id">
@@ -43,7 +43,7 @@ function App() {
           <Route path="/author/create">
             <ScreenAuthorForm />
           </Route>
-          <Route path="/book/list">
+          <Route exact path="/book">
             <ScreenBookList />
           </Route>
           <Route path="/book/edit/:id">

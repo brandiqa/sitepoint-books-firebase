@@ -6,7 +6,9 @@ function ScreenBookList() {
   return (
     <>
       <PageHeading title="Book List" />
-      <BookList />
+      <div className="mt-12">
+        <BookList />
+      </div>
     </>
   )
 }

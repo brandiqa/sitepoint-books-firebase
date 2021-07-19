@@ -27,17 +27,17 @@ function Home() {
   const data = [
     {
       title: 'Category',
-      url: '/category/list',
+      url: '/category',
       icon: CollectionIcon,
     },
     {
       title: 'Author',
-      url: '/author/list',
+      url: '/author',
       icon: UserCircleIcon,
     },
     {
       title: 'Book',
-      url: '/book/list',
+      url: '/book',
       icon: BookOpenIcon,
     },
   ]
