@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "heybourn.headwind",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "dsznajder.es7-react-js-snippets"
+  ]
+}
