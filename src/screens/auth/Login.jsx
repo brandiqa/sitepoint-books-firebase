@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+import Alert from '../../components/ui/Alert'
 import PageHeading from '../../components/ui/PageHeading'
 
+const schema = yup.object().shape({
+  email: yup.string().label('Email').required().email(),
+  password: yup.string().label('Password').required(),
+})
+
 function ScreenLogin() {
+  const [message, setMessage] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
+  const onSubmit = (data) => {
+    setMessage('Feature not yet available')
+    console.log(data)
+  }
+
   return (
     <>
       <PageHeading title="Sign in to your account" />
@@ -14,7 +38,9 @@ function ScreenLogin() {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="px-4 py-8 shadow bg-base-200 sm:rounded-lg sm:px-10">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+              {message && <Alert type="error" message={message} />}
+
               <div className="form-control">
                 <label className="label" htmlFor="email">
                   <span className="label-text">Email address</span>
@@ -22,9 +48,16 @@ function ScreenLogin() {
                 <input
                   type="email"
                   autoComplete="email"
-                  required
-                  className="input"
+                  {...register('email')}
+                  className={`input input-bordered ${
+                    errors.email && 'input-error'
+                  }`}
                 />
+                {errors.email && (
+                  <span className="mt-1 text-xs text-error">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
 
               <div className="form-control">
@@ -34,20 +67,28 @@ function ScreenLogin() {
                 <input
                   type="password"
                   autoComplete="current-password"
-                  required
-                  className="input"
+                  {...register('password')}
+                  className={`input input-bordered ${
+                    errors.password && 'input-error'
+                  }`}
                 />
+                {errors.password && (
+                  <span className="mt-1 text-xs text-error">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <input
-                    id="remember-me"
-                    name="remember-me"
+                    id="rememberMe"
+                    name="rememberMe"
                     type="checkbox"
-                    className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                    {...register('rememberMe')}
+                    className="w-4 h-4 text-base border-gray-300 rounded focus:ring-base"
                   />
-                  <label htmlFor="remember-me" className="block ml-2 text-sm">
+                  <label htmlFor="rememberMe" className="block ml-2 text-sm">
                     Remember me
                   </label>
                 </div>

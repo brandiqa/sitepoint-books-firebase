@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
 import PageHeading from '../../components/ui/PageHeading'
-import { useForm } from 'react-hook-form'
 import Alert from '../../components/ui/Alert'
 
 const schema = yup.object().shape({
