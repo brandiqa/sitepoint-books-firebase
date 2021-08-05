@@ -19,10 +19,11 @@ function AuthorList({ data }) {
     <div className="overflow-x-auto">
       <div className="mb-4">
         <Link to="/author/create" className="btn btn-secondary btn-sm">
+          <UserCircleIcon className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
           New Author
         </Link>
       </div>
-      <table className="table w-full max-w-screen-md">
+      <table className="table w-full max-w-screen-lg">
         <thead>
           <tr>
             <th>Name</th>
