@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -10,17 +10,20 @@ const schema = yup.object().shape({
 })
 
 function AuthorForm({ data }) {
-  console.log(data)
-  const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   })
+
+  useEffect(() => {
+    reset(data)
+  }, [reset])
 
   const onSubmit = (data) => {
     try {
@@ -33,8 +36,6 @@ function AuthorForm({ data }) {
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
         {errorMsg && <Alert type="error" message={errorMsg} />}
-
-        {successMsg && <Alert type="success" message={successMsg} />}
 
         <div className="form-control">
           <label className="label" htmlFor="name">

@@ -2,14 +2,15 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 import AuthorService from '../../services/AuthorService'
+
 import PageHeading from '../../components/ui/PageHeading'
 import AuthorForm from '../../components/author/Form'
 import Alert from '../../components/ui/Alert'
 
 function ScreenAuthorForm() {
   let { id } = useParams()
-  // const title = !id ? 'Create' : 'Update'
 
+  // Display Edit Form
   if (id) {
     const { data, isLoading, error, status } = useQuery(
       ['author', { id }],
@@ -33,6 +34,7 @@ function ScreenAuthorForm() {
     )
   }
 
+  // Display Create Form
   return (
     <>
       <PageHeading title="Create Author" />
