@@ -9,7 +9,8 @@ const schema = yup.object().shape({
   name: yup.string().label('Name').required().min(2),
 })
 
-function AuthorForm() {
+function AuthorForm({ data }) {
+  console.log(data)
   const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
 
