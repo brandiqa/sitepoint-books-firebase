@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import EmptyState from '../ui/EmptyState'
-import { UserCircleIcon } from '@heroicons/react/outline'
+import { UserCircleIcon, PencilAltIcon } from '@heroicons/react/outline'
 
 function AuthorList({ data }) {
   if (!data || data.length == 0) {
@@ -17,6 +17,11 @@ function AuthorList({ data }) {
   }
   return (
     <div className="overflow-x-auto">
+      <div className="mb-4">
+        <Link to="/author/create" className="btn btn-secondary btn-sm">
+          New Author
+        </Link>
+      </div>
       <table className="table w-full max-w-screen-md">
         <thead>
           <tr>
@@ -34,8 +39,12 @@ function AuthorList({ data }) {
                 <Link
                   to={`/author/edit/${author.id}`}
                   className="text-primary hover:text-primary-focus"
+                  title="Edit"
                 >
-                  Edit
+                  <PencilAltIcon
+                    className="w-5 h-5 mr-2 -ml-1"
+                    aria-hidden="true"
+                  />
                 </Link>
               </td>
             </tr>
