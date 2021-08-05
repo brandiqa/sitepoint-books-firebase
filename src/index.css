@@ -17,7 +17,3 @@ h1 {
 h2 {
   @apply text-3xl;
 }
-
-.btn {
-  @apply rounded-full;
-}
