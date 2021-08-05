@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Alert from '../../components/ui/Alert'
+import { Link } from 'react-router-dom'
 
 const schema = yup.object().shape({
   name: yup.string().label('Name').required().min(2),
@@ -55,9 +56,9 @@ function AuthorForm() {
           <button type="submit" className="btn btn-primary btn-sm w-24">
             Save
           </button>
-          <button type="link" className="btn btn-outline btn-sm w-24">
+          <Link to="/author" className="btn btn-outline btn-sm w-24">
             Cancel
-          </button>
+          </Link>
         </div>
       </form>
     </div>
