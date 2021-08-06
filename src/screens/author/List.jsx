@@ -8,7 +8,7 @@ import Alert from '../../components/ui/Alert'
 function ScreenAuthorList() {
   const { data, isLoading, error, status } = useQuery(
     'authors',
-    AuthorService.list
+    AuthorService.getAll
   )
 
   return (
