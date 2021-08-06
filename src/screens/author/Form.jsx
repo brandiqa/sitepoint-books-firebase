@@ -11,54 +11,49 @@ function ScreenAuthorForm() {
   let { id } = useParams()
   const queryClient = useQueryClient()
 
-  // Display Edit Form
-  if (id) {
-    const { data, isLoading, error, status } = useQuery(
-      ['author', { id }],
-      AuthorService.getOne
-    )
+  const { data, isLoading, error, status } = useQuery(
+    ['author', { id }],
+    AuthorService.getOne
+  )
 
-    const mutation = useMutation((data) => AuthorService.update(id, data), {
-      onSuccess: () => {
-        queryClient.invalidateQueries(['author', { id }])
-      },
-    })
-
-    const { isSuccess } = mutation
-
-    const onSubmit = async (submittedData) => {
-      mutation.mutate(submittedData)
+  const saveData = (data) => {
+    if (id) {
+      return AuthorService.update(id, data)
+    } else {
+      AuthorService.create(data)
     }
-
-    if (isSuccess) {
-      return <Redirect to="/author" />
-    }
-
-    return (
-      <>
-        <PageHeading title="Edit Author" />
-        <div className="mt-12">
-          {error && <Alert type="error" message={error.message} />}
-          {isLoading && (
-            <Alert
-              type="info"
-              message="Loading..."
-              innerClass="animate animate-pulse"
-            />
-          )}
-          {status === 'success' && (
-            <AuthorForm values={data} action={onSubmit} />
-          )}
-        </div>
-      </>
-    )
   }
 
-  // Display Create Form
+  const mutation = useMutation((data) => saveData(data), {
+    onSuccess: () => {
+      if (id) queryClient.invalidateQueries(['author', { id }])
+    },
+  })
+
+  const { isSuccess } = mutation
+
+  const onSubmit = async (submittedData) => {
+    mutation.mutate(submittedData)
+  }
+
+  if (isSuccess) {
+    return <Redirect to="/author" />
+  }
+
   return (
     <>
-      <PageHeading title="Create Author" />
-      <AuthorForm />
+      <PageHeading title="Edit Author" />
+      <div className="mt-12">
+        {error && <Alert type="error" message={error.message} />}
+        {isLoading && (
+          <Alert
+            type="info"
+            message="Loading..."
+            innerClass="animate animate-pulse"
+          />
+        )}
+        {status === 'success' && <AuthorForm values={data} action={onSubmit} />}
+      </div>
     </>
   )
 }
