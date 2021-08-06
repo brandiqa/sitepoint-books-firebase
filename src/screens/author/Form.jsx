@@ -14,8 +14,9 @@ function ScreenAuthorForm() {
   if (id) {
     const { data, isLoading, error, status } = useQuery(
       ['author', { id }],
-      AuthorService.get
+      AuthorService.getOne
     )
+
     return (
       <>
         <PageHeading title="Edit Author" />
@@ -28,7 +29,9 @@ function ScreenAuthorForm() {
               innerClass="animate animate-pulse"
             />
           )}
-          {status === 'success' && <AuthorForm data={data} />}
+          {status === 'success' && (
+            <AuthorForm id={data.id} values={data.values} />
+          )}
         </div>
       </>
     )

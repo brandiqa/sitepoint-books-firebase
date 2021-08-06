@@ -2,7 +2,7 @@ import { db } from '../firebase'
 
 const ref = db.collection('authors')
 
-const list = async () => {
+const getAll = async () => {
   const snapshot = await ref.get()
   return snapshot.docs.map((doc) => {
     return {
@@ -12,12 +12,12 @@ const list = async () => {
   })
 }
 
-const get = async ({ queryKey }) => {
+const getOne = async ({ queryKey }) => {
   const { id } = queryKey[1]
   const snapshot = await ref.doc(id).get()
   return {
     id,
-    ...snapshot.data(),
+    values: snapshot.data(),
   }
 }
 
@@ -34,8 +34,8 @@ const remove = async (id) => {
 }
 
 const AuthorService = {
-  list,
-  get,
+  getAll,
+  getOne,
   create,
   update,
   remove,
