@@ -9,7 +9,7 @@ const schema = yup.object().shape({
   name: yup.string().label('Name').required().min(2),
 })
 
-function AuthorForm({ id, values }) {
+function AuthorForm({ values, action }) {
   const [errorMsg, setErrorMsg] = useState('')
 
   const {
@@ -25,9 +25,9 @@ function AuthorForm({ id, values }) {
     reset(values)
   }, [reset])
 
-  const onSubmit = (data) => {
+  const onSubmit = (submittedData) => {
     try {
-      console.log(data)
+      action(submittedData) // submit data to action handler
     } catch (err) {
       setErrorMsg(err.message)
     }

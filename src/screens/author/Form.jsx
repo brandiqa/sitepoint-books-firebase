@@ -1,6 +1,6 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { useQuery } from 'react-query'
+import { useParams, Redirect } from 'react-router-dom'
+import { useQuery, useMutation, useQueryClient } from 'react-query'
 import AuthorService from '../../services/AuthorService'
 
 import PageHeading from '../../components/ui/PageHeading'
@@ -9,6 +9,7 @@ import Alert from '../../components/ui/Alert'
 
 function ScreenAuthorForm() {
   let { id } = useParams()
+  const queryClient = useQueryClient()
 
   // Display Edit Form
   if (id) {
@@ -16,6 +17,22 @@ function ScreenAuthorForm() {
       ['author', { id }],
       AuthorService.getOne
     )
+
+    const mutation = useMutation((data) => AuthorService.update(id, data), {
+      onSuccess: () => {
+        queryClient.invalidateQueries(['author', { id }])
+      },
+    })
+
+    const { isSuccess } = mutation
+
+    const onSubmit = async (submittedData) => {
+      mutation.mutate(submittedData)
+    }
+
+    if (isSuccess) {
+      return <Redirect to="/author" />
+    }
 
     return (
       <>
@@ -30,7 +47,7 @@ function ScreenAuthorForm() {
             />
           )}
           {status === 'success' && (
-            <AuthorForm id={data.id} values={data.values} />
+            <AuthorForm values={data} action={onSubmit} />
           )}
         </div>
       </>
