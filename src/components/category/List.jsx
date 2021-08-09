@@ -3,6 +3,7 @@ import { CollectionIcon } from '@heroicons/react/outline'
 import EmptyState from '../ui/EmptyState'
 
 import CategoryCard from './Card'
+import { Link } from 'react-router-dom'
 
 function CategoryList({ data }) {
   if (!data || data.length == 0) {
@@ -22,9 +23,17 @@ function CategoryList({ data }) {
   ))
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-y-4">
-      {cards}
-    </div>
+    <>
+      <div className="mb-4">
+        <Link to="/category/create" className="btn btn-secondary btn-sm">
+          <CollectionIcon className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
+          New Category
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-y-4">
+        {cards}
+      </div>
+    </>
   )
 }
 
