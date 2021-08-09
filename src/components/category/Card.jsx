@@ -12,7 +12,7 @@ function CategoryCard({ category }) {
 
   return (
     <div>
-      <Link to={`/books/${category.name}`}>
+      <Link to={`/category/edit/${category.id}`}>
         <img src={cover} alt={category.name} />
       </Link>
     </div>
