@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
+import 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_FIREBASE_API_KEY,
@@ -15,4 +16,5 @@ const app = firebase.initializeApp(firebaseConfig)
 
 export const auth = app.auth()
 export const db = app.firestore()
+export const storage = app.storage()
 export default app
