@@ -1,5 +1,6 @@
 import React from 'react'
-import { useQuery } from 'react-query'
+import { useQuery, useMutation, useQueryClient } from 'react-query'
+
 import AuthorService from '../../services/AuthorService'
 import PageHeading from '../../components/ui/PageHeading'
 import AuthorList from '../../components/author/List'
@@ -10,6 +11,18 @@ function ScreenAuthorList() {
     'authors',
     AuthorService.getAll
   )
+
+  const queryClient = useQueryClient()
+
+  const deleteMutation = useMutation((id) => AuthorService.remove(id), {
+    onSuccess: () => {
+      queryClient.invalidateQueries('authors')
+    },
+  })
+
+  const deleteAction = async (id) => {
+    deleteMutation.mutateAsync(id)
+  }
 
   return (
     <>
@@ -23,7 +36,9 @@ function ScreenAuthorList() {
             innerClass="animate animate-pulse"
           />
         )}
-        {status === 'success' && <AuthorList data={data} />}
+        {status === 'success' && (
+          <AuthorList data={data} deleteAction={deleteAction} />
+        )}
       </div>
     </>
   )

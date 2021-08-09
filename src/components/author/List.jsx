@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import EmptyState from '../ui/EmptyState'
-import DeleteModal from '../../components/ui/DeleteModal'
 import {
   UserCircleIcon,
   PencilAltIcon,
   TrashIcon,
 } from '@heroicons/react/outline'
 
-function AuthorList({ data }) {
+import EmptyState from '../ui/EmptyState'
+import DeleteModal from '../../components/ui/DeleteModal'
+
+function AuthorList({ data, deleteAction }) {
   const [selected, setSelected] = useState()
   const [openModal, setOpenModal] = useState(false)
   if (!data || data.length == 0) {
@@ -29,11 +30,11 @@ function AuthorList({ data }) {
   }
 
   const deleteModalAction = () => {
-    console.log('Delete id: ', selected)
+    deleteAction(selected)
     setOpenModal(false)
   }
 
-  const cancelModalAction = (id) => {
+  const cancelModalAction = () => {
     setOpenModal(false)
   }
 
