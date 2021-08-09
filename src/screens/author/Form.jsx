@@ -9,12 +9,8 @@ import Alert from '../../components/ui/Alert'
 
 function ScreenAuthorForm() {
   let { id } = useParams()
-  const queryClient = useQueryClient()
 
-  const { data, isLoading, error, status } = useQuery(
-    ['author', { id }],
-    AuthorService.getOne
-  )
+  const queryClient = useQueryClient()
 
   const saveData = (data) => {
     if (id) {
@@ -39,6 +35,22 @@ function ScreenAuthorForm() {
   if (isSuccess) {
     return <Redirect to="/author" />
   }
+
+  if (!id) {
+    return (
+      <>
+        <PageHeading title="Create Author" />
+        <div className="mt-12">
+          <AuthorForm action={onSubmit} />
+        </div>
+      </>
+    )
+  }
+
+  const { data, isLoading, error, status } = useQuery(
+    ['author', { id }],
+    AuthorService.getOne
+  )
 
   return (
     <>
