@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import EmptyState from '../ui/EmptyState'
+import DeleteModal from '../../components/ui/DeleteModal'
 import {
   UserCircleIcon,
   PencilAltIcon,
@@ -8,6 +9,8 @@ import {
 } from '@heroicons/react/outline'
 
 function AuthorList({ data }) {
+  const [selected, setSelected] = useState()
+  const [openModal, setOpenModal] = useState(false)
   if (!data || data.length == 0) {
     return (
       <EmptyState
@@ -19,8 +22,28 @@ function AuthorList({ data }) {
       />
     )
   }
+
+  const showDeleteModal = (id) => {
+    setSelected(id)
+    setOpenModal(true)
+  }
+
+  const deleteModalAction = () => {
+    console.log('Delete id: ', selected)
+    setOpenModal(false)
+  }
+
+  const cancelModalAction = (id) => {
+    setOpenModal(false)
+  }
+
   return (
     <div className="overflow-x-auto">
+      <DeleteModal
+        open={openModal}
+        deleteAction={deleteModalAction}
+        cancelAction={cancelModalAction}
+      />
       <div className="mb-4">
         <Link to="/author/create" className="btn btn-secondary btn-sm">
           <UserCircleIcon className="w-5 h-5 mr-2 -ml-1" aria-hidden="true" />
@@ -60,6 +83,7 @@ function AuthorList({ data }) {
                   type="button"
                   title={`Delete ${author.name}`}
                   className="text-secondary-content"
+                  onClick={() => showDeleteModal(author.id)}
                 >
                   <TrashIcon
                     className="w-5 h-5 mr-2 -ml-1"
