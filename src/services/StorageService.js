@@ -7,8 +7,16 @@ const getImageURL = async (filePath) => {
   return url
 }
 
+const listFiles = async (folder) => {
+  const listRef = storageRef.child(folder)
+  const res = await listRef.listAll()
+  const list = res.items.map((itemRef) => itemRef._delegate._location.path_)
+  return list
+}
+
 const StorageService = {
   getImageURL,
+  listFiles,
 }
 
 export default StorageService

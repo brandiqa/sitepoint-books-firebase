@@ -15,6 +15,13 @@ const schema = yup.object().shape({
 function CategoryForm({ values, action }) {
   const [errorMsg, setErrorMsg] = useState('')
   const [cover, setCover] = useState()
+  const [coverOptions, setCoverOptions] = useState(['foo', 'bar'])
+
+  // Get list images already uploaded
+  useEffect(async () => {
+    const availableFiles = await StorageService.listFiles('categories')
+    setCoverOptions(availableFiles)
+  }, [])
 
   const {
     register,
@@ -25,10 +32,12 @@ function CategoryForm({ values, action }) {
     resolver: yupResolver(schema),
   })
 
+  // Load current document values
   useEffect(() => {
     reset(values)
   }, [reset])
 
+  // Display the current cover
   if (values) {
     useEffect(async () => {
       const url = await StorageService.getImageURL(values.cover)
@@ -62,6 +71,28 @@ function CategoryForm({ values, action }) {
           {errors.name && (
             <span className="mt-1 text-xs text-error">
               {errors.name.message}
+            </span>
+          )}
+        </div>
+
+        <div className="form-control">
+          <label className="label" htmlFor="cover">
+            <span className="label-text">Select Cover</span>
+          </label>
+          <select
+            {...register('cover')}
+            className={`select select-bordered w-full max-w-xs ${
+              errors.cover && 'select-error'
+            }`}
+          >
+            <option disabled="disabled">Choose a cover</option>
+            {coverOptions.map((fileName, index) => (
+              <option key={index}>{fileName}</option>
+            ))}
+          </select>
+          {errors.cover && (
+            <span className="mt-1 text-xs text-error">
+              {errors.cover.message}
             </span>
           )}
         </div>
