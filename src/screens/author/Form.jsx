@@ -9,6 +9,10 @@ import Alert from '../../components/ui/Alert'
 
 function ScreenAuthorForm() {
   let { id } = useParams()
+  const { data, isLoading, error, status } = useQuery(
+    ['author', { id }],
+    AuthorService.getOne
+  )
 
   const queryClient = useQueryClient()
 
@@ -46,11 +50,6 @@ function ScreenAuthorForm() {
       </>
     )
   }
-
-  const { data, isLoading, error, status } = useQuery(
-    ['author', { id }],
-    AuthorService.getOne
-  )
 
   return (
     <>
