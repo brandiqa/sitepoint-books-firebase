@@ -44,7 +44,7 @@ function ScreenCategoryForm() {
       <>
         <PageHeading title="Create Category" />
         <div className="mt-12">
-          <CategoryForm action={onSubmit} />
+          <CategoryForm values={{ cover: 'nocover' }} action={onSubmit} />
         </div>
       </>
     )

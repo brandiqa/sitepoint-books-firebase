@@ -41,7 +41,7 @@ function CategoryForm({ values, action }) {
 
   // Display the current cover
   useEffect(async () => {
-    if (watchCover) {
+    if (watchCover && watchCover != 'nocover') {
       const url = await StorageService.getImageURL(watchCover)
       setCoverURL(url)
     }
@@ -89,13 +89,17 @@ function CategoryForm({ values, action }) {
                 errors.cover ? 'select-error' : ''
               }`}
             >
-              <option disabled="disabled">Choose a cover</option>
+              <option disabled="disabled" value="nocover">
+                Choose a cover
+              </option>
               {coverOptions.map((fileName, index) => (
-                <option key={index}>{fileName}</option>
+                <option key={index} value={fileName}>
+                  {fileName}
+                </option>
               ))}
             </select>
             <button type="button" className="btn btn-secondary btn-sm ml-8">
-              Upload
+              Upload New
             </button>
           </div>
           {errors.cover && (
@@ -105,7 +109,7 @@ function CategoryForm({ values, action }) {
           )}
           <div className="avatar mt-4">
             <div className="mb-8 rounded-btn w-36 h-36">
-              <img src={coverURL} />
+              {coverURL && <img src={coverURL} />}
             </div>
           </div>
         </div>
