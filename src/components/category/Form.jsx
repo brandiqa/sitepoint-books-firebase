@@ -14,40 +14,42 @@ const schema = yup.object().shape({
 
 function CategoryForm({ values, action }) {
   const [errorMsg, setErrorMsg] = useState('')
-  const [cover, setCover] = useState()
-  const [coverOptions, setCoverOptions] = useState(['foo', 'bar'])
-
-  // Get list images already uploaded
-  useEffect(async () => {
-    const availableFiles = await StorageService.listFiles('categories')
-    setCoverOptions(availableFiles)
-  }, [])
+  const [coverURL, setCoverURL] = useState()
+  const [coverOptions, setCoverOptions] = useState([])
 
   const {
     register,
+    watch,
     reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   })
+  const watchCover = watch('cover')
 
-  // Load current document values
+  // Get list of available images from cloud storage
+  useEffect(async () => {
+    const availableFiles = await StorageService.listFiles('categories')
+    setCoverOptions(availableFiles)
+  }, [])
+
+  // Load current document values if available
   useEffect(() => {
     reset(values)
   }, [reset])
 
   // Display the current cover
-  if (values) {
-    useEffect(async () => {
-      const url = await StorageService.getImageURL(values.cover)
-      setCover(url)
-    }, [values])
-  }
+  useEffect(async () => {
+    if (watchCover) {
+      const url = await StorageService.getImageURL(watchCover)
+      setCoverURL(url)
+    }
+  }, [watchCover])
 
-  const onSubmit = (submittedData) => {
+  const onSubmit = async (submittedData) => {
     try {
-      action(submittedData) // submit data to action handler
+      await action(submittedData) // submit data to action handler
     } catch (err) {
       setErrorMsg(err.message)
     }
@@ -79,33 +81,32 @@ function CategoryForm({ values, action }) {
           <label className="label" htmlFor="cover">
             <span className="label-text">Select Cover</span>
           </label>
-          <select
-            {...register('cover')}
-            className={`select select-bordered w-full max-w-xs ${
-              errors.cover && 'select-error'
-            }`}
-          >
-            <option disabled="disabled">Choose a cover</option>
-            {coverOptions.map((fileName, index) => (
-              <option key={index}>{fileName}</option>
-            ))}
-          </select>
+          <div className="flex items-center">
+            <select
+              {...register('cover')}
+              value={watchCover}
+              className={`select select-bordered w-full ${
+                errors.cover ? 'select-error' : ''
+              }`}
+            >
+              <option disabled="disabled">Choose a cover</option>
+              {coverOptions.map((fileName, index) => (
+                <option key={index}>{fileName}</option>
+              ))}
+            </select>
+            <button type="button" className="btn btn-secondary btn-sm ml-8">
+              Upload
+            </button>
+          </div>
           {errors.cover && (
             <span className="mt-1 text-xs text-error">
               {errors.cover.message}
             </span>
           )}
-        </div>
-
-        <div className="form-control">
-          <label className="label" htmlFor="cover">
-            <span className="label-text">Cover</span>
-          </label>
-          <div className="avatar">
+          <div className="avatar mt-4">
             <div className="mb-8 rounded-btn w-36 h-36">
-              <img src={cover} />
+              <img src={coverURL} />
             </div>
-            <button className="btn btn-secondary btn-sm ml-8 ">Upload</button>
           </div>
         </div>
 

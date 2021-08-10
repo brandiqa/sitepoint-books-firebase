@@ -9,6 +9,10 @@ import Alert from '../../components/ui/Alert'
 
 function ScreenCategoryForm() {
   let { id } = useParams()
+  const { data, isLoading, error, status } = useQuery(
+    ['category', { id }],
+    CategoryService.getOne
+  )
   const queryClient = useQueryClient()
 
   const saveData = (data) => {
@@ -45,11 +49,6 @@ function ScreenCategoryForm() {
       </>
     )
   }
-
-  const { data, isLoading, error, status } = useQuery(
-    ['category', { id }],
-    CategoryService.getOne
-  )
 
   return (
     <>
