@@ -1,9 +1,9 @@
 import React from 'react'
-import { CollectionIcon } from '@heroicons/react/outline'
-import EmptyState from '../ui/EmptyState'
-
-import CategoryCard from './Card'
 import { Link } from 'react-router-dom'
+import { CollectionIcon } from '@heroicons/react/outline'
+
+import EmptyState from '../ui/EmptyState'
+import CategoryCard from './Card'
 
 function CategoryList({ data }) {
   if (!data || data.length == 0) {
