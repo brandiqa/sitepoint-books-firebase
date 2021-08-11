@@ -23,6 +23,17 @@ class DatabaseService {
     return snapshot.data()
   }
 
+  getReference = async (documentReference) => {
+    const res = await documentReference.get()
+    const data = res.data()
+
+    if (data && documentReference.id) {
+      data.uid = documentReference.id
+    }
+
+    return data
+  }
+
   create = async (data) => {
     return await this.collection.add(data)
   }

@@ -14,6 +14,7 @@ import ScreenAuthorList from './screens/author/List'
 import ScreenAuthorForm from './screens/author/Form'
 import ScreenBookList from './screens/book/List'
 import ScreenBookForm from './screens/book/Form'
+import ScreenBookDetail from './screens/book/Detail'
 import ScreenLogin from './screens/auth/Login'
 import ScreenJoin from './screens/auth/Join'
 
@@ -54,6 +55,9 @@ function App() {
             </Route>
             <Route path="/book/edit/:id">
               <ScreenBookForm />
+            </Route>
+            <Route path="/book/detail/:id">
+              <ScreenBookDetail />
             </Route>
             <Route path="/book/create">
               <ScreenBookForm />
