@@ -8,7 +8,7 @@ import Alert from '../../components/ui/Alert'
 
 function ScreenCategoryList() {
   const { data, isLoading, error, status } = useQuery(
-    'categories',
+    'books',
     CategoryService.getAll
   )
 
