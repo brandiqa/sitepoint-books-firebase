@@ -19,6 +19,7 @@ class DatabaseService {
 
   getOne = async ({ queryKey }) => {
     const { id } = queryKey[1]
+    if (!id) return
     const snapshot = await this.collection.doc(id).get()
     return snapshot.data()
   }

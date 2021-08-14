@@ -8,7 +8,7 @@ import AuthorForm from '../../components/author/Form'
 import Alert from '../../components/ui/Alert'
 
 function ScreenAuthorForm() {
-  let { id } = useParams()
+  const { id } = useParams()
   const { data, isLoading, error, status } = useQuery(
     ['author', { id }],
     AuthorService.getOne
@@ -45,6 +45,7 @@ function ScreenAuthorForm() {
       <>
         <PageHeading title="Create Author" />
         <div className="mt-12">
+          {error && <Alert type="error" message={error.message} />}
           <AuthorForm action={onSubmit} />
         </div>
       </>
