@@ -21,7 +21,7 @@ Sitepoint Books App, an MVP example built with Vite + React, powered by Firebase
    npm install
 
    # Setup environment variables
-   cp env.example .env
+   cp env.example .env.local
 
    ```
 
