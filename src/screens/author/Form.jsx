@@ -46,7 +46,7 @@ function ScreenAuthorForm() {
         <PageHeading title="Create Author" />
         <div className="mt-12">
           {error && <Alert type="error" message={error.message} />}
-          <AuthorForm action={onSubmit} />
+          <AuthorForm submit={onSubmit} />
         </div>
       </>
     )
@@ -64,7 +64,7 @@ function ScreenAuthorForm() {
             innerClass="animate animate-pulse"
           />
         )}
-        {status === 'success' && <AuthorForm values={data} action={onSubmit} />}
+        {status === 'success' && <AuthorForm values={data} submit={onSubmit} />}
       </div>
     </>
   )
