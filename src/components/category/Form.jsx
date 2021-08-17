@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-import StorageService from '../../services/StorageService'
-import Alert from '../../components/ui/Alert'
+import StorageService from '@/services/StorageService'
+import Alert from '@/components/ui/Alert'
 
 const schema = yup.object().shape({
   name: yup.string().label('Name').required().min(2),

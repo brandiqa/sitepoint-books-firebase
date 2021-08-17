@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import Alert from '../../components/ui/Alert'
+import Alert from '@/components/ui/Alert'
 import { Link } from 'react-router-dom'
 
 const schema = yup.object().shape({

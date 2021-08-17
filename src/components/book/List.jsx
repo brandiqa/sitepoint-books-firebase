@@ -1,7 +1,7 @@
 import React from 'react'
 import { BookOpenIcon } from '@heroicons/react/outline'
 
-import EmptyState from '../ui/EmptyState'
+import EmptyState from '@/components/ui/EmptyState'
 import BookCard from './Card'
 
 function BookList({ data }) {
@@ -16,9 +16,7 @@ function BookList({ data }) {
       />
     )
   }
-  const cards = data.map((book, index) => (
-    <BookCard book={book} key={index} />
-  ))
+  const cards = data.map((book, index) => <BookCard book={book} key={index} />)
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 gap-y-4">

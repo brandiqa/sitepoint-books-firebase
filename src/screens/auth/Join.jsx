@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 
-import PageHeading from '../../components/ui/PageHeading'
-import Alert from '../../components/ui/Alert'
+import PageHeading from '@/components/ui/PageHeading'
+import Alert from '@/components/ui/Alert'
 
 const schema = yup.object().shape({
   email: yup.string().label('Email').required().email(),

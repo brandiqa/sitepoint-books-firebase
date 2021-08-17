@@ -2,10 +2,10 @@ import React from 'react'
 import { useParams, Redirect } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
-import { CategoryService } from '../../services/DatabaseService'
-import PageHeading from '../../components/ui/PageHeading'
-import CategoryForm from '../../components/category/Form'
-import Alert from '../../components/ui/Alert'
+import { CategoryService } from '@/services/DatabaseService'
+import PageHeading from '@/components/ui/PageHeading'
+import CategoryForm from '@/components/category/Form'
+import Alert from '@/components/ui/Alert'
 
 function ScreenCategoryForm() {
   let { id } = useParams()

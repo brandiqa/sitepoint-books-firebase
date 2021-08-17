@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import StorageService from '../../services/StorageService'
+import StorageService from '@/services/StorageService'
 
 function CategoryCard({ category }) {
   const [imageLink, setImageLink] = useState()

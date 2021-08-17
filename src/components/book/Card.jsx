@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-import { BookService } from '../../services/DatabaseService'
-import StorageService from '../../services/StorageService'
+import { BookService } from '@/services/DatabaseService'
+import StorageService from '@/services/StorageService'
 
 function BookCard({ book }) {
   const [coverURL, setCoverURL] = useState()

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import { BookService } from '../../services/DatabaseService'
-import StorageService from '../../services/StorageService'
+import { BookService } from '@/services/DatabaseService'
+import StorageService from '@/services/StorageService'
 
 function BookDetail({ book }) {
   const [author, setAuthor] = useState()

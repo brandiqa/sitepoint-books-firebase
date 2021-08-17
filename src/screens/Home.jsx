@@ -5,7 +5,7 @@ import {
   UserCircleIcon,
   BookOpenIcon,
 } from '@heroicons/react/outline'
-import PageHeading from '../components/ui/PageHeading'
+import PageHeading from '@/components/ui/PageHeading'
 
 function PageCardLink({ title, url, icon }) {
   return (

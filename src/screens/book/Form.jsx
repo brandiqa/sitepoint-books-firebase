@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import PageHeading from '../../components/ui/PageHeading'
-import BookForm from '../../components/book/Form'
+import PageHeading from '@/components/ui/PageHeading'
+import BookForm from '@/components/book/Form'
 
 function ScreenBookForm() {
   let { id } = useParams()

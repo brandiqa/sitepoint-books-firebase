@@ -2,10 +2,10 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
 
-import { BookService } from '../../services/DatabaseService'
-import PageHeading from '../../components/ui/PageHeading'
-import BookDetail from '../../components/book/Detail'
-import Alert from '../../components/ui/Alert'
+import { BookService } from '@/services/DatabaseService'
+import PageHeading from '@/components/ui/PageHeading'
+import BookDetail from '@/components/book/Detail'
+import Alert from '@/components/ui/Alert'
 
 function ScreenBookDetail() {
   const { id } = useParams()

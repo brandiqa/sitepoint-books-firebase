@@ -1,11 +1,11 @@
 import React from 'react'
 import { useParams, Redirect } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { AuthorService } from '../../services/DatabaseService'
+import { AuthorService } from '@/services/DatabaseService'
 
-import PageHeading from '../../components/ui/PageHeading'
-import AuthorForm from '../../components/author/Form'
-import Alert from '../../components/ui/Alert'
+import PageHeading from '@/components/ui/PageHeading'
+import AuthorForm from '@/components/author/Form'
+import Alert from '@/components/ui/Alert'
 
 function ScreenAuthorForm() {
   const { id } = useParams()

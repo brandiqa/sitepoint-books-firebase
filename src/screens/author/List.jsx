@@ -1,10 +1,10 @@
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
-import { AuthorService } from '../../services/DatabaseService'
-import PageHeading from '../../components/ui/PageHeading'
-import AuthorList from '../../components/author/List'
-import Alert from '../../components/ui/Alert'
+import { AuthorService } from '@/services/DatabaseService'
+import PageHeading from '@/components/ui/PageHeading'
+import AuthorList from '@/components/author/List'
+import Alert from '@/components/ui/Alert'
 
 function ScreenAuthorList() {
   const { data, isLoading, error, status } = useQuery(

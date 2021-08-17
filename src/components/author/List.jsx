@@ -6,8 +6,8 @@ import {
   TrashIcon,
 } from '@heroicons/react/outline'
 
-import EmptyState from '../ui/EmptyState'
-import DeleteModal from '../../components/ui/DeleteModal'
+import EmptyState from '@/components/ui/EmptyState'
+import DeleteModal from '@/components/ui/DeleteModal'
 
 function AuthorList({ data, deleteAction }) {
   const [selected, setSelected] = useState()

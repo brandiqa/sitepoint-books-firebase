@@ -1,10 +1,10 @@
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
-import { CategoryService } from '../../services/DatabaseService'
-import PageHeading from '../../components/ui/PageHeading'
-import CategoryList from '../../components/category/List'
-import Alert from '../../components/ui/Alert'
+import { CategoryService } from '@/services/DatabaseService'
+import PageHeading from '@/components/ui/PageHeading'
+import CategoryList from '@/components/category/List'
+import Alert from '@/components/ui/Alert'
 
 function ScreenCategoryList() {
   const { data, isLoading, error, status } = useQuery(

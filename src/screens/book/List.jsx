@@ -1,10 +1,10 @@
 import React from 'react'
 import { useQuery, useMutation, useQueryClient } from 'react-query'
 
-import { BookService } from '../../services/DatabaseService'
-import PageHeading from '../../components/ui/PageHeading'
-import BookList from '../../components/book/List'
-import Alert from '../../components/ui/Alert'
+import { BookService } from '@/services/DatabaseService'
+import PageHeading from '@/components/ui/PageHeading'
+import BookList from '@/components/book/List'
+import Alert from '@/components/ui/Alert'
 
 function ScreenBookList() {
   const { data, isLoading, error, status } = useQuery(
