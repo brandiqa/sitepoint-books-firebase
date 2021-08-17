@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import StorageService from '../../services/StorageService'
 
 function CategoryCard({ category }) {
-  const [cover, setCover] = useState()
+  const [imageLink, setImageLink] = useState()
 
   useEffect(async () => {
     const url = await StorageService.getImageURL(category.cover)
-    setCover(url)
+    setImageLink(url)
   }, [category])
 
   return (
     <div>
       <Link to={`/category/edit/${category.id}`}>
-        <img src={cover} alt={category.name} />
+        <img src={imageLink} alt={category.name} />
       </Link>
     </div>
   )
