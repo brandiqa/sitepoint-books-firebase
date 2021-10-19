@@ -32,7 +32,7 @@ Sitepoint Books App, an MVP example built with Vite + React, powered by Firebase
 
 MIT License
 
-Copyright (c) 2020 Michael Wanyoike
+Copyright (c) 2021 Michael Wanyoike
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
